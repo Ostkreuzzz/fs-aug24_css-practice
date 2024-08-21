@@ -1,1 +1,102 @@
+.page {
+  box-sizing: border-box;
+  height: 100vh;
+  .page__body {
+    margin: 0;
+    font-family: Arial;
+  }
+}
 
+.people {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 200px);
+  gap: 40px 30px;
+
+  padding: 35px 30px;
+  min-width: 500px;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 200px);
+  }
+}
+
+.person {
+  position: relative;
+
+  &__photo {
+    position: relative;
+  }
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    padding-bottom: 8px;
+  }
+
+  &__name {
+    display: block;
+    padding-bottom: 8px;
+
+    font-size: 20px;
+    text-align: center;
+    color: #2f4f4f;
+    font-weight: bold;
+  }
+
+  &__rank {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 90px;
+    left: 160px;
+
+    height: 32px;
+    width: 32px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #8b0000;
+
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__extra {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    background: #eeeeee;
+    color: #2f4f4f;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 10px;
+    visibility: hidden;
+    text-align: center;
+  }
+
+  &__sport::after {
+    content: ",";
+  }
+
+  &__pay::before {
+    content: "$";
+  }
+
+  &__pay::after {
+    content: "M";
+  }
+
+  &:hover {
+    background: #eeeeee;
+    border-radius: 10px;
+  }
+
+  &:hover &__extra {
+    opacity: 1;
+    visibility: visible;
+  }
+}
